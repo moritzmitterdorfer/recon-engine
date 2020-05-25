@@ -6,6 +6,9 @@ app.use(express.json());
 const api = require('./api');
 app.use('/api/v1', api);
 
+const cdn = require('./cdn');
+app.use('/cdn/v1/', cdn);
+
 app.get('/', (req, res) => {
     res.sendFile(__dirname + '/client/views/index.html');
 })
