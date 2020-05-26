@@ -14,7 +14,7 @@
     <header>
         <div class="main-wrapper">
             <div class="h-line">
-                <h1>Reco Engine</h1>
+                <h1>Recon Engine</h1>
             </div>
             <div class="h-small">
                 Documentation
@@ -30,11 +30,11 @@
                     <h2>Install</h2>
                     <h3>NPM <span class="yellow">(recommended)</span></h3>
                     <p>
-                        For server side code, just install reco-engine and require the package in your node.js file.
+                        For server side code, just install recon-engine and require the package in your node.js file.
                     </p>
                     <pre class="code">
                         <code class="language-javascript" id="code-container">
-const RecoClient = require('reco-client');
+const RecoClient = require('recon-engine-client');
                         </code>
                     </pre>
                     <br>
@@ -45,7 +45,7 @@ const RecoClient = require('reco-client');
                     </p>
                     <pre class="code">
                         <code class="language-html" id="code-container">
-&lt;script src="recoengine.herokuapp.com/cdn/v1/reco.js"&gt;&lt;/script&gt;
+&lt;script src="http://reconengine.herokuapp.com/cdn/v1/recon.js"&gt;&lt;/script&gt;
                         </code>
                     </pre>
                 </div>
@@ -53,12 +53,12 @@ const RecoClient = require('reco-client');
                 <div class="section-item">
                     <h2>Constructor</h2>
                     <p>
-                        Then, use the default constructor to connect your application to the reco cloud. Please insert your copied API key instead of YOUR_API_KEY.
+                        Then, use the default constructor to connect your application to the recon cloud. Please insert your copied API key instead of YOUR_API_KEY.
                     </p>
                     <pre class="code">
                         <code class="language-javascript" id="code-container">
 // insert API KEY
-let reco = new RecoClient({ token: 'YOUR_API_KEY' })
+let recon = new ReconClient({ token: 'YOUR_API_KEY' })
                         </code>
                     </pre>
                 </div>
@@ -71,7 +71,7 @@ let reco = new RecoClient({ token: 'YOUR_API_KEY' })
                     <pre class="code">
                         <code class="language-javascript" id="code-container">
 // userID and item are strings
-reco.userAction(userID, item);
+recon.userAction(userID, item);
                         </code>
                     </pre>
                 </div>
@@ -84,7 +84,7 @@ reco.userAction(userID, item);
                     <pre class="code">
                         <code class="language-javascript" id="code-container">
 // train the model (returns promise)
-reco.trainModel()
+recon.trainModel()
                         </code>
                     </pre>
                 </div>
@@ -97,7 +97,7 @@ reco.trainModel()
                     <pre class="code">
                         <code class="language-javascript" id="code-container">
 // recommendations for a user
-let recommendations = await reco.recommend(userID);
+let recommendations = await recon.recommend(userID);
                         </code>
                     </pre>
                     <p>
@@ -128,7 +128,7 @@ let recommendations = await reco.recommend(userID);
                     <div class="footer-heading">About</div>
                     <div class="footer-list">
                         <div class="footer-text">
-                            <a href="#">Reco Engine</a>
+                            <a href="#">Recon Engine</a>
                         </div>
                         <div class="footer-text">
                             <a href="#">Algorithm</a>

@@ -200,3 +200,22 @@ pre {
         width: 34%;
     }
 }
+
+/** cards */
+.card {
+    background-color: #ffd700;
+    color: black;
+    border-radius: 4px;
+    margin: 5%;
+    padding: 2.5%;
+    transition: box-shadow .3s;
+}
+
+.card:hover {
+    box-shadow: -5px 5px 11px rgba(33,33,33,.2); 
+}
+
+.card-heading {
+    font-weight: 700;
+    margin-bottom: 2%;
+}
