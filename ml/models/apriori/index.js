@@ -34,12 +34,12 @@ class Apriori {
 
     async getRules() {
         let sets = await this.expand();
+        console.log('frequent item sets', sets);
         let rules = [];
         for(let set of sets) {
             for(let j = 0; j < set.length; j++) {
                 let rule = [set.slice(0,j).concat(set.slice(j+1,set.length)), [set[j]]];
                 let confidence = this.confidence(rule);
-                console.log('confidence', confidence);
                 if(confidence >= this.minConfidence)
                     rules.push({ rule, confidence });
             }
