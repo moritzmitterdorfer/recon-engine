@@ -68,7 +68,12 @@ router.post('/items/:token', (req, res, next) => {
                             .update({
                                 lastUpdate: Date.now(),
                                 itemlist: admin.admin.firestore.FieldValue.arrayUnion(...req.query.itemlist)
-                            });
+                            }).then(() => {
+                                res.json({
+                                    message: '✅ Stored user action',
+                                    userID: req.query.userID
+                                });
+                            })
                     } else {
                         firestore.collection('apps').doc(req.query.token).collection('users').doc(req.query.userID)
                             .set({
