@@ -37,11 +37,13 @@ class Rules {
         }
         /** filter them (no rule twice) */
         for(let i = 0; i < ret.length; i++) {
-            for(let j = ret.length - 1; j >= 0; j--) {
-                if(i != j && ret[i] == ret[j])
-                    ret.splice(i, 1);
+            for(let j = ret.length-1; j >= 0; j--) {
+                if(i != j && (ret[i].item == ret[j].item)) {
+                    ret[i] = -1;
+                }
             }
         }
+        ret = ret.filter(v => v != -1);
         ret = ret.filter(val => {
             for(let i of item_array) {
                 if(i == val.item)

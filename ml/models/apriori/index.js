@@ -4,6 +4,7 @@
 class Apriori {
 
     constructor(data, minSupport = .5, minConfidence = .4) {
+        console.log('data', data);
         this.data = data;
         this.els = [];
         this.elsScores = {};

@@ -52,12 +52,14 @@ router.post('/items/:token', (req, res, next) => {
     firestore.collection('apps').doc(req.query.token).get().then(doc => {
         if(doc.exists) {
             /** v0.0.1 -> just for statistics and other stuff */
+            /*
             firestore.collection('apps').doc(req.query.token).collection('users').doc(req.query.userID).collection('items')
                 .add({
                     transaction: Date.now(),
                     action: 'basic',
                     items: req.query.itemlist
                 });
+            */
             /** v0.0.2 -> for the model */
             firestore.collection('apps').doc(req.query.token).collection('users').doc(req.query.userID).get()
                 .then(doc => {
@@ -118,7 +120,7 @@ router.post('/models/train/:token', async (req, res, next) => {
             
             /** do ML */
             /** perform apriori */
-            let model = new Apriori(data, 0.5, 0.5);
+            let model = new Apriori(data, 0.1, 0.6);
 
             let frequenItemsets = await model.expand();
             console.log(frequenItemsets);
@@ -164,7 +166,7 @@ router.get('/models/recommend/:token/:userID', async (req, res, next) => {
     rulesGet.forEach(rule => {
         rules.push(rule.data());
     })
-    
+
     /** initialize the rules object */
     let rulesModel = new Rules(rules);
 
