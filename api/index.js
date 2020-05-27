@@ -124,11 +124,8 @@ router.post('/models/train/:token', async (req, res, next) => {
                     for(let i = 0; i < rules.length; i++) {
                         /** save model */
                         firestore.collection('apps').doc(req.params.token).collection('associationRules').doc(`_${i}`).set({ a: rules[i].rule[0], b: rules[i].rule[1], confidence: rules[i].confidence })
-                        .then(() => {
-                            /** send response */
-                            res.json({ rules: rules, message: `✅ successfully created model at /apps/${req.params.token}/rules` })
-                        })
                     }
+                    res.json({ message: `✅ successfully created model at /apps/${req.params.token}/rules` })
                 })
                 .catch(err => console.log(err));
         });
