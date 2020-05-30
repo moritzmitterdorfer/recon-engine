@@ -29,13 +29,13 @@
             <div class="main-wrapper">
                 <div class="section-item">
                     <h2>Install</h2>
-                    <h3>NPM <span class="yellow">(recommended)</span> soon...</h3>
+                    <h3>NPM <span class="yellow">(recommended)</span></h3>
                     <p>
-                        For server side code, just install recon-engine and require the package in your node.js file.
+                        For server side code, just install recon-engine-client and require the package in your node.js file.
                     </p>
                     <pre class="code">
                         <code class="language-javascript" id="code-container">
-const reconEngine = require('recon-engine-client')
+const ReconClient = require('recon-engine-client')
                         </code>
                     </pre>
                     <br>
@@ -144,7 +144,7 @@ recon.recommendAnonymously(['item_1', 'item_2'], recommendations => {
                 </div>
 
                 <div class="section-item">
-                    <h2>Recommend items anonymously with storage</h2>
+                    <h2>Recommend items anonymously with storage <span class="yellow">(frontend only)</span></h2>
                     <p>
                         If you want to store the items the user has interacted with locally, you can use addItem. In addition, a new anonymous userID is created for that user. Whener you want to get recommendations for that user, call recommendAnonymouslyByStorage.
                     </p>
